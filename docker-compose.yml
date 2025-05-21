@@ -1,0 +1,15 @@
+services:
+  user_pgsql:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: '${DB_USERNAME:-postgres}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD:-12345678}'
+      POSTGRES_DB: '${DB_DATABASE:-user_service_db}'
+    ports:
+      - '${DB_PORT:-5435}:5432'
+    volumes:
+      - 'user_pgsql-data:/var/lib/postgresql/data'
+      - './user_service.sql:/docker-entrypoint-initdb.d/user_service.sql'
+volumes:
+  user_pgsql-data:
+    driver: local
