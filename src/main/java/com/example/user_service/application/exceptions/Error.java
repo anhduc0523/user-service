@@ -8,6 +8,8 @@ public enum Error {
 
     NOT_FOUND_USER(404,"Not found lesson %s"),
 
+    INVALID_FILE(422,"Invalid file name"),
+
     PAYLOAD_TOO_LARGE(413,"Payload too large"),
     ;
 
