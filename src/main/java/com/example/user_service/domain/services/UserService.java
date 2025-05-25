@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService {
-    UserDTO get(Integer id);
+    UserDTO get(Long id);
     Object create(CreateUserRequestDTO userDTO);
-    Object update(Integer id,UpdateUserRequestDTO userDTO);
-    String delete(Integer id);
+    Object update(Long id,UpdateUserRequestDTO userDTO);
+    String delete(Long id);
 }
