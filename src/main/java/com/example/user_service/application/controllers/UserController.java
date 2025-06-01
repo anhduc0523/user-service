@@ -14,22 +14,24 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<Object> createUser(@RequestBody CreateUserRequestDTO createUserRequest) {
+    public ResponseEntity<Object> create(@RequestBody CreateUserRequestDTO createUserRequest) {
         return ResponseEntity.ok(userService.create(createUserRequest));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getUser(@PathVariable Long id) {
+    public ResponseEntity<Object> get(@PathVariable Long id) {
         return ResponseEntity.ok(userService.get(id));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         return ResponseEntity.ok(userService.delete(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateUser(@PathVariable Long id, @RequestBody UpdateUserRequestDTO updateUserRequest) {
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody UpdateUserRequestDTO updateUserRequest) {
         return ResponseEntity.ok(userService.update(id, updateUserRequest));
     }
+
+
 }
