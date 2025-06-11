@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-
-    @PostMapping
-    public ResponseEntity<Object> create(@RequestBody CreateUserRequestDTO createUserRequest) {
-        return ResponseEntity.ok(userService.create(createUserRequest));
+    @GetMapping("info")
+    public ResponseEntity<Object> info() {
+        return ResponseEntity.ok(userService.info());
     }
 
     @GetMapping("/{id}")

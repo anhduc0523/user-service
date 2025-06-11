@@ -2,6 +2,8 @@ package com.example.user_service.utils;
 
 import com.example.user_service.application.exceptions.BaseException;
 import com.example.user_service.application.exceptions.Error;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,5 +46,10 @@ public class CommonUtils {
 
     public static Boolean isNullOrEmpty(Object object){
         return Objects.isNull(object);
+    }
+
+    public static String getUserId(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 }

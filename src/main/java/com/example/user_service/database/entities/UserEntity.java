@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Entity(name = "user")
+@Entity(name = "users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
@@ -20,8 +20,11 @@ public class UserEntity extends BaseEntity{
     @Column(name = "keycloak_id")
     String keycloakId;
 
-    @Column(name = "name")
-    String name;
+    @Column(name = "first_name")
+    String firstName;
+
+    @Column(name = "last_name")
+    String lastName;
 
     @Column(name = "email")
     String email;
@@ -36,7 +39,7 @@ public class UserEntity extends BaseEntity{
     Integer age;
 
     @Column(name = "gender")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     UserGender gender;
 
     @Column(name = "avatar")
